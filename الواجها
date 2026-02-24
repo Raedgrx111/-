@@ -1,0 +1,100 @@
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة الماب - روبلوكس</title>
+<style>
+  body { font-family: Arial; direction: rtl; margin: 0; background: #f2f2f2; }
+  header { background: #1e1e2f; color: white; padding: 10px 20px; display: flex; gap: 15px; }
+  header button { background: #2a2a3f; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px; }
+  header button:hover { background: #444459; }
+  .content { padding: 20px; max-width: 800px; margin: auto; background: white; border-radius: 10px; margin-top: 20px; box-shadow: 0 0 10px #aaa; }
+  .hidden { display: none; }
+  input, textarea { width: 100%; padding: 8px; margin: 5px 0; }
+  button.action { margin-top: 10px; padding: 10px 20px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<header>
+  <button onclick="showSection('rules')">القوانين</button>
+  <button onclick="showSection('discord')">سيرفر ديسكورد</button>
+  <button onclick="showSection('activation')">تفعيل</button>
+  <button onclick="showSection('register')">تسجيل بالموقع</button>
+  <button onclick="showSection('suggestions')">اقتراحات</button>
+  <button onclick="showSection('store')">المتجر</button>
+</header>
+
+<div class="content">
+  <div id="rules" class="section hidden">
+    <h2>القوانين</h2>
+    <p>احترام اللاعبين، ممنوع السب والشتم، الالتزام بالقوانين داخل الماب...</p>
+  </div>
+
+  <div id="discord" class="section hidden">
+    <h2>سيرفر ديسكورد</h2>
+    <p>انضم إلى سيرفرنا على ديسكورد: <a href="https://discord.gg/T3qudqBt7" target="_blank">رابط السيرفر</a></p>
+  </div>
+
+  <div id="activation" class="section hidden">
+    <h2>تفعيل</h2>
+    <p>أدخل كود التفعيل الخاص بك لتأكيد الحساب أو الوصول للعبة:</p>
+    <input type="text" id="activationCode" placeholder="ادخل الكود">
+    <button class="action" onclick="activateCode()">تفعيل</button>
+  </div>
+
+  <div id="register" class="section hidden">
+    <h2>تسجيل بالموقع</h2>
+    <input type="text" id="username" placeholder="اسم اللاعب">
+    <input type="email" id="email" placeholder="البريد الإلكتروني">
+    <button class="action" onclick="registerPlayer()">تسجيل</button>
+  </div>
+
+  <div id="suggestions" class="section hidden">
+    <h2>اقتراحات</h2>
+    <textarea id="suggestionText" placeholder="اكتب اقتراحك هنا"></textarea>
+    <button class="action" onclick="submitSuggestion()">إرسال الاقتراح</button>
+  </div>
+
+  <div id="store" class="section hidden">
+    <h2>المتجر</h2>
+    <p>يمكنك شراء العناصر أو النقاط داخل اللعبة هنا (قريباً).</p>
+  </div>
+</div>
+
+<script>
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(sec => sec.classList.add('hidden'));
+  document.getElementById(sectionId).classList.remove('hidden');
+}
+
+// مثال تسجيل لاعب
+let playerData = {};
+function registerPlayer() {
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  if(!username || !email) { alert("يرجى ملء جميع الحقول"); return; }
+  playerData.username = username;
+  playerData.email = email;
+  alert("تم التسجيل بنجاح!");
+}
+
+// مثال تفعيل كود
+function activateCode() {
+  const code = document.getElementById("activationCode").value;
+  if(code === "1234") alert("تم التفعيل بنجاح!");
+  else alert("الكود غير صحيح");
+}
+
+// إرسال الاقتراح
+function submitSuggestion() {
+  const suggestion = document.getElementById("suggestionText").value;
+  if(!suggestion) { alert("اكتب اقتراحك"); return; }
+  alert("تم إرسال اقتراحك! شكرًا لك.");
+  document.getElementById("suggestionText").value = "";
+}
+</script>
+
+</body>
+</html>
