@@ -1,0 +1,57 @@
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة روبلوكس</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <button onclick="showSection('rules')">القوانين</button>
+  <button onclick="showSection('discord')">سيرفر ديسكورد</button>
+  <button onclick="showSection('activation')">تفعيل</button>
+  <button onclick="showSection('register')">تسجيل بالموقع</button>
+  <button onclick="showSection('suggestions')">اقتراحات</button>
+  <button onclick="showSection('store')">المتجر</button>
+</header>
+
+<div class="content">
+  <div id="rules" class="section hidden">
+    <h2>القوانين</h2>
+    <p>احترام اللاعبين، الالتزام بالقوانين داخل الماب...</p>
+  </div>
+
+  <div id="discord" class="section hidden">
+    <h2>سيرفر ديسكورد</h2>
+    <p>انضم إلى السيرفر: <a href="https://discord.gg/T3qudqBt7" target="_blank">رابط السيرفر</a></p>
+  </div>
+
+  <div id="activation" class="section hidden">
+    <h2>تفعيل</h2>
+    <input type="text" id="activationCode" placeholder="ادخل الكود">
+    <button onclick="activateCode()">تفعيل</button>
+  </div>
+
+  <div id="register" class="section hidden">
+    <h2>تسجيل بالموقع</h2>
+    <input type="text" id="username" placeholder="اسم اللاعب">
+    <input type="email" id="email" placeholder="البريد الإلكتروني">
+    <button onclick="registerPlayer()">تسجيل</button>
+  </div>
+
+  <div id="suggestions" class="section hidden">
+    <h2>اقتراحات</h2>
+    <textarea id="suggestionText" placeholder="اكتب اقتراحك هنا"></textarea>
+    <button onclick="submitSuggestion()">إرسال الاقتراح</button>
+  </div>
+
+  <div id="store" class="section hidden">
+    <h2>المتجر</h2>
+    <p>قريباً يمكنك شراء العناصر داخل اللعبة.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
